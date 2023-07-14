@@ -5,8 +5,14 @@ import com.jpabook.jpashop.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+<<<<<<< Updated upstream
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+=======
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+>>>>>>> Stashed changes
 
 import javax.validation.Valid;
 import java.util.List;
@@ -17,6 +23,7 @@ import java.util.stream.Collectors;
 public class MemberApiController {
     private final MemberService memberService;
 
+<<<<<<< Updated upstream
     @GetMapping("/api/v1/members")
     public List<Member> memberV1(){
         return memberService.findMembers();
@@ -44,6 +51,8 @@ public class MemberApiController {
         private String name;
     }
 
+=======
+>>>>>>> Stashed changes
 
     @PostMapping("/api/v1/members")
     public CreateMemberResponse saveMemberV1(@RequestBody @Valid Member member) {
@@ -59,7 +68,7 @@ public class MemberApiController {
      * Entity를 parameter로 받는거 X
      */
     @PostMapping("/api/v2/members")
-    public CreateMemberResponse saveMemberV2(@RequestBody @Valid CreateMemberRequest request){
+    public CreateMemberResponse saveMemberV2(@RequestBody @Valid CreateMemberRequest request) {
         Member member = new Member();
         member.setName(request.getName());
 
@@ -91,7 +100,7 @@ public class MemberApiController {
 
 
     @Data
-    static  class CreateMemberRequest {
+    static class CreateMemberRequest {
         private String name;
     }
 
